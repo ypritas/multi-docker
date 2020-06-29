@@ -25,9 +25,9 @@ deploy:
     edge: true
     provider: elasticbeanstalk
     region: us-east-2
-    app: multi-docker
+    app: multi-dcoker
     env: MultiDocker-env
     bucket_name: elasticbeanstalk-us-east-2-614188104177
-    bucket_path: docker-multi
+    bucket_path: multi-dcoker
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
