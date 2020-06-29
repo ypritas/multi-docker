@@ -1,0 +1,22 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t ypritas/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+    - docker run -e CI=true ypritas/react-test npm test
+
+after_success:
+    - docker build -t ypritas/multi-client ./client
+    - docker build -t ypritas/multi-nging ./nginx
+    - docker build -t ypritas/multi-server ./server
+    - docker build -t ypritas/multi-worker ./worker
+    # Login in to the docker CLI
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin;
+    # Take those images and pusch to docker hub
+    - docker push ypritas/multi-client
+    - docker push ypritas/multi-server
+    - docker push ypritas/multi-nginx
+    - docker push ypritas/multi-worker
