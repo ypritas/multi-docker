@@ -14,7 +14,7 @@ after_success:
     - docker build -t ypritas/multi-server ./server
     - docker build -t ypritas/multi-worker ./worker
     # Login in to the docker CLI
-    - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" docker.io
+    - docker login -u "$DOCKER_ID" -p "$DOCKER_PASSWORD" docker.io
     # Take those images and push to docker hub
     - docker push ypritas/multi-client
     - docker push ypritas/multi-server
