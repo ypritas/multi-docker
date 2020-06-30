@@ -10,7 +10,7 @@ script:
 
 after_success:
     - docker build -t ypritas/multi-client ./client
-    - docker build -t ypritas/multi-nging ./nginx
+    - docker build -t ypritas/multi-nginx ./nginx
     - docker build -t ypritas/multi-server ./server
     - docker build -t ypritas/multi-worker ./worker
     # Login in to the docker CLI
