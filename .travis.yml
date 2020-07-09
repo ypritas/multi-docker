@@ -19,7 +19,6 @@ before_install:
 
 script:
     - docker run -e CI=true ypritas/react-test npm run test
-
 deploy:
     provider: script
     script: bash ./deploy.sh
